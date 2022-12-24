@@ -47,7 +47,7 @@ class Comment(models.Model):
 
 
 class Follow(models.Model):
-    author = models.ForeignKey(
+    following = models.ForeignKey(
         User,
         on_delete=models.CASCADE,
         related_name='following',
@@ -59,4 +59,4 @@ class Follow(models.Model):
         related_name='follower',
     )
 
-    unique_together = [['author', 'user']]
+    unique_together = [['user', 'following']]

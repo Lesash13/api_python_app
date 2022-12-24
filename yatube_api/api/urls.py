@@ -1,6 +1,5 @@
 from django.urls import path, include
 from rest_framework import routers
-from rest_framework.authtoken.views import obtain_auth_token
 
 from . import views
 
@@ -15,8 +14,6 @@ router_v1.register(
     basename='comments')
 urlpatterns = [
     path('v1/', include(router_v1.urls), name='posts-v1'),
-    path('v1/api-token-auth/', obtain_auth_token),
-    path('auth/', include('djoser.urls')),
-    path('auth/', include('djoser.urls.jwt')),
-
+    path('v1/', include('djoser.urls')),
+    path('v1/', include('djoser.urls.jwt')),
 ]
