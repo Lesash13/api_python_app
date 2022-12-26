@@ -70,11 +70,3 @@ class FollowViewSet(CreateRetrieveViewSet):
 
     def perform_create(self, serializer):
         serializer.save(user=self.request.user)
-        # if Follow.objects.filter(
-        #         user=self.request.user,
-        #         following=serializer.validated_data.get('following')):
-        #     raise ParseError('Запись уже существует')
-        #
-        # if serializer.validated_data.get(
-        #         'following') == self.request.user:
-        #     raise ParseError('Невозможно подписаться на самого себя')
