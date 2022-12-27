@@ -18,11 +18,6 @@ class PostViewSet(viewsets.ModelViewSet):
 
     pagination_class = LimitOffsetPagination
 
-    def get_permissions(self):
-        if self.action == 'retrieve':
-            return (permissions.IsAuthenticatedOrReadOnly(),)
-        return super().get_permissions()
-
     def perform_create(self, serializer):
         serializer.save(author=self.request.user)
 
@@ -38,13 +33,9 @@ class CommentViewSet(viewsets.ModelViewSet):
         permissions.IsAuthenticatedOrReadOnly,
         IsAuthorOrReadOnly]
 
-    def get_permissions(self):
-        if self.action == 'retrieve':
-            return (permissions.IsAuthenticatedOrReadOnly(),)
-        return super().get_permissions()
-
     def get_queryset(self):
-        return Comment.objects.filter(post=self.kwargs.get('post_id'))
+        post = get_object_or_404(Post, pk=self.kwargs.get('post_id'))
+        return Comment.objects.filter(post=post)
 
     def perform_create(self, serializer):
         post = get_object_or_404(Post, pk=self.kwargs.get('post_id'))
