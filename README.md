@@ -27,7 +27,7 @@ Backend performs next modules:
 #### Clone the repo:
 
 ```sh
-git clone https://github.com/Lesash13/api_final_yatube.git
+git clone https://github.com/Lesash13/api_python_app.git
 ```
 
 #### Start and activate virtual environment:
@@ -104,7 +104,7 @@ http://127.0.0.1:8000/api/v1/posts/1/comments/
 
 [dependency-shield]: https://img.shields.io/badge/Dependency_Graph-darkgreen?style=for-the-badge
 
-[dependency-url]: https://github.com/Lesash13/api_final_yatube/network/dependencies
+[dependency-url]: https://github.com/Lesash13/api_python_app/network/dependencies
 
 [linkedin-shield]: https://img.shields.io/badge/-LinkedIn-black.svg?style=for-the-badge&logo=linkedin&colorB=darkblue
 
